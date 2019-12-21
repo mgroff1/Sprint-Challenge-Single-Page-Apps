@@ -4,7 +4,8 @@ import Header from "./components/Header.js";
 import CharacterList from "./components/CharacterList.js";
 import WelcomePage from "./components/WelcomePage.js";
 import SearchForm from "./components/SearchForm.js";
-import {Navbar,Nav_Link,CardContainer,DIV} from "./components/Style.js";
+import LocationList from "./components/LocationsList.js";
+import {Navbar,DIV} from "./components/Style.js";
 import {Route, NavLink, Switch} from 'react-router-dom';
 
 
@@ -20,6 +21,7 @@ export default function App() {
       <DIV>
           <NavLink to='/'>Welcome</NavLink>
           <NavLink to='/character-list'>Character List</NavLink>
+          <NavLink to='/location-list'>Location List</NavLink>
           <NavLink to='/search-form'>Search Characters</NavLink>
           </DIV>
           </Navbar>
@@ -30,6 +32,9 @@ export default function App() {
       <Switch>
       <Route path='/character-list'>
           <CharacterList />
+        </Route>
+        <Route path='/location-list'>
+          <LocationList />
         </Route>
         <Route path='/search-form'>
           <SearchForm />
