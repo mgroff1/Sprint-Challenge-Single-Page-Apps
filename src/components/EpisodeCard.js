@@ -5,18 +5,17 @@ import {
 } from 'reactstrap';
 
 export default function CharacterCard(props) {
-  const {name, image, species, gender} = props;
+  const {name,url, air_date,episode} = props;
 
   return (
     <StyledDiv>
       <Card body outline color='secondary'>
         <CardBody>
           <CardTitle>{name}</CardTitle>
-        </CardBody>
-        <CardImg width="75%" src={image} alt="Card image cap" />
-        <CardBody>
-          <CardText>{species}</CardText>
-          <CardText>{gender}</CardText>
+          <CardText>{url}</CardText>
+
+          <CardText>{air_date}</CardText>
+          <CardText>{episode}</CardText>
         </CardBody>
       </Card>
     </StyledDiv>

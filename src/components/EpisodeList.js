@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import CharacterCard from "./CharacterCard";
-import {StyledDiv,CardContainer} from "./Style"
+import EpisodeCard from "./EpisodeCard";
+import {CardContainer} from "./Style"
 import css from '../index.css';
 
 export default function CharacterList() {
   // TODO: Add useState to track data from useEffect
-  const [character, setCharacter] = useState([]);
+  const [episode, setEpisode] = useState([]);
 
   useEffect(() => {
     // TODO: Add API Request here - must run in `useEffect`
     //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
-    axios.get('https://rickandmortyapi.com/api/character/')
+    axios.get('https://rickandmortyapi.com/api/episode/')
     .then(res => {
       console.log(res.data.results)
-      setCharacter(res.data.results)
+      setEpisode(res.data.results)
     })
     .catch(err => {
       console.log('No data to display', err);
@@ -23,14 +23,14 @@ export default function CharacterList() {
 
   return (
 <CardContainer>
-    <section className="character-list">
-      {character.map((char, index) => {
-        return <CharacterCard
+    <section className="episode-list">
+      {episode.map((epi, index) => {
+        return <EpisodeCard
           key={index}
-          name={char.name}
-          image={char.image}
-          species={char.species}
-          gender={char.gender}
+          name={epi.name}
+          url={epi.url}
+          air_date={epi.air_date}
+          episode={epi.episode}
           />
       })}
     </section>
